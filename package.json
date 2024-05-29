@@ -1,6 +1,6 @@
 {
    "name": "react-bank-api",
-   "version": "1.0.3",
+   "version": "1.0.4",
    "private": false,
    "publishConfig": {
       "registry": "https://soleng.jfrog.io/artifactory/api/npm/alpha-npm-virtual/"
