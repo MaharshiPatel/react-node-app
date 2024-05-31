@@ -73,12 +73,12 @@ jobs:
 
          # promote to Dev
          jf rbp reactApp ${{ github.run_number}} DEV --signing-key=${{ secrets.Key }} --include-repos=alpha-npm-dev-local
-         jf rt set-props "alpha-npm-dev-local/react-bank-api/-/react-bank-api-1.0.8.tgz" "unit.test=pass;integration.test=null;"
+         jf rt set-props "alpha-npm-dev-local/react-bank-api/-/react-bank-api-1.0.9.tgz" "unit.test=pass;integration.test=null;"
          
 
          # Promote to QA
          jf rbp reactApp ${{ github.run_number }} QA --signing-key=${{ secrets.Key }} --include-repos=alpha-npm-qa-local
-         jf rt set-props "alpha-npm-qa-local/react-bank-api/-/react-bank-api-1.0.8.tgz" "unit.test=pass;integration.test=pass;"
+         jf rt set-props "alpha-npm-qa-local/react-bank-api/-/react-bank-api-1.0.9.tgz" "unit.test=pass;integration.test=pass;"
 
          # Promote to PROD
          jf rbp reactApp ${{ github.run_number }} PROD --signing-key=${{ secrets.Key }} --include-repos=alpha-npm-prod-local
