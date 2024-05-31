@@ -53,12 +53,12 @@ jobs:
      - name: Docker Build 🐳🐸
        run: |
          jf docker build . -t soleng.jfrog.io/alpha-docker-virtual/reactappimage:${{github.run_number}}
-    #  - name: JFrog docker image scan 🐳🐸
-    #    run: |
-    #      jf docker scan soleng.jfrog.io/alpha-docker-virtual/reactappimage:${{github.run_number}}
-    #  - name: Docker Push 🐳🐸
-    #    run: |
-    #       jf docker push soleng.jfrog.io/alpha-docker-virtual/reactappimage:${{github.run_number}}
+     - name: JFrog docker image scan 🐳🐸
+       run: |
+         jf docker scan soleng.jfrog.io/alpha-docker-virtual/reactappimage:${{github.run_number}}
+     - name: Docker Push 🐳🐸
+       run: |
+          jf docker push soleng.jfrog.io/alpha-docker-virtual/reactappimage:${{github.run_number}}
      - name: Publish build build-info
        run: |
          # Collect and store environment variables in the build-info
