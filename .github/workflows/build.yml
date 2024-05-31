@@ -50,9 +50,9 @@ jobs:
           registry: ${{ secrets.JF_URL }}
           username: ${{ secrets.JF_USER }}
           password: ${{ secrets.JF_PASSWORD }}
-    #  - name: Docker Build 🐳🐸
-    #    run: |
-    #      jf docker build . -t soleng.jfrog.io/alpha-docker-virtual/reactappimage:${{github.run_number}}
+     - name: Docker Build 🐳🐸
+       run: |
+         jf docker build . -t soleng.jfrog.io/alpha-docker-virtual/reactappimage:${{github.run_number}}
     #  - name: JFrog docker image scan 🐳🐸
     #    run: |
     #      jf docker scan soleng.jfrog.io/alpha-docker-virtual/reactappimage:${{github.run_number}}
