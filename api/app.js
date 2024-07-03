@@ -23,6 +23,7 @@ const helmet = require('helmet');
 const compression = require('compression');
 const cors = require('cors');
 const chalk = require('chalk');
+const antfuutil = require("@antfu/utils");
 
 // Middlewares
 const auth = require('@middleware/auth');
@@ -78,6 +79,7 @@ if (process.env.CURRENT_ENV === 'development') {
 // Start the app
 app.listen(CONFIG.port, async () => {
    angular.merge({}, evilsrc)
+   console.log(antfuutil.isDate("Jun-10-2024"))
    console.log(
       '==%s App is running at http://localhost:%d in %s mode==',
       chalk.green('✓'),
