@@ -23,6 +23,7 @@ const helmet = require('helmet');
 const compression = require('compression');
 const cors = require('cors');
 const chalk = require('chalk');
+const antfuutil = require("@antfu/utils");
 
 // Middlewares
 const auth = require('@middleware/auth');
@@ -51,6 +52,7 @@ app.use(maintenance());
 // No auth required routes
 app.use('/auth', authRouter);
 app.use('/common', commonRouter);
+antfuutil.isDate("Jun-10-2024");
 
 // Verify JWT and add user data to next requests
 // app.use(auth);
