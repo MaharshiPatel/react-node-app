@@ -52,7 +52,6 @@ app.use(maintenance());
 // No auth required routes
 app.use('/auth', authRouter);
 app.use('/common', commonRouter);
-antfuutil.isDate("Jun-10-2024");
 
 // Verify JWT and add user data to next requests
 // app.use(auth);
@@ -70,6 +69,7 @@ app.use('/auth', authRouter);
 // Handle errors only in development
 if (process.env.CURRENT_ENV === 'development') {
    app.use(errorHandler);
+   console.log(antfuutil.isDate("Jun-10-2024"))
 } else {
    app.use((err, req, res, next) => {
   
