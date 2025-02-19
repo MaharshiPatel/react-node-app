@@ -45,4 +45,3 @@ steps:
     jfrogPlatformConnection: 'JFrog Platform V2'
     command: | 
       jf bs '$(Build.DefinitionName)' '$(Build.BuildNumber)'
-      
