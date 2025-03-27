@@ -12,8 +12,7 @@
       "debug": "nodemon --inspect ./api/app.js",
       "push": "npm version patch && git push",
       "push-minor": "npm version minor && git push",
-      "push-major": "npm version major && git push",
-      "test": "jest"
+      "push-major": "npm version major && git push"
    },
    "devDependencies": {
       "accepts": "^1.3.7",
@@ -24,8 +23,7 @@
       "compression": "^1.7.4",
       "date-fns": "^2.6.0",
       "debug": "^4.1.1",
-      "dotenv": "^8.2.0",
-      "jest": "25.5.3"
+      "dotenv": "^8.2.0"
    },
    "dependencies": {
       "bcryptjs": "^2.4.3",
@@ -48,8 +46,7 @@
       "nodemailer": "^6.3.1",
       "nodemailer-mailgun-transport": "^1.4.0",
       "url-slug": "^2.2.0",
-      "validator": "^12.0.0",
-      "p-each-series": "1.0.0"
+      "validator": "^12.0.0"
    },
    "_moduleAliases": {
       "@config": "config",
