@@ -39,7 +39,11 @@
       "nodemailer": "6.10.0",
       "nodemailer-mailgun-transport": "2.1.5",
       "istanbul-lib-instrument":"5.2.1",
-      "passport": "^0.4.1"
+      "passport": "^0.4.1",
+      "jest": "^29.7.0",
+      "jest-junit": "^16.0.0",
+      "@testing-library/jest-dom": "^6.6.3",
+      "@testing-library/react": "^16.2.0",
    },
    "_moduleAliases": {
       "@config": "config",
@@ -49,13 +53,5 @@
       "@routes": "routes",
       "@util": "util",
       "@validations": "validations"
-   },
-   "devDependencies": {
-      "@testing-library/jest-dom": "^6.6.3",
-      "@testing-library/react": "^16.2.0",
-      "@jridgewell/trace-mapping": "0.3.17",
-      "jest": "^29.7.0",
-      "jest-junit": "^16.0.0",
-      "supertest": "^7.1.0"
    }
 }
