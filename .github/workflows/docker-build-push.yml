@@ -33,7 +33,10 @@ jobs:
 
       - name: Build Docker Image 🐳
         run: |
-          docker build -f ../../Dockerfile . -t ${{ secrets.JF_URL }}/alpha-docker-virtual/${{ inputs.image_name }}:${{ inputs.build_number }}
+          ls -la ../../
+          cd $GITHUB_WORKSPACE
+          ls -la ../../
+          docker build -f Dockerfile . -t ${{ secrets.JF_URL }}/alpha-docker-virtual/${{ inputs.image_name }}:${{ inputs.build_number }}
 
       - name: Push Docker Image to JFrog 🐳
         run: |

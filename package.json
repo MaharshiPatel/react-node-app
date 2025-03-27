@@ -1,6 +1,6 @@
 {
    "name": "react-bank-api",
-   "version": "2.0.63",
+   "version": "2.0.64",
    "private": false,
    "description": "dockerize react application",
    "publishConfig": {
