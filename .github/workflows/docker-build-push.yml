@@ -1,0 +1,40 @@
+name: Reusable Docker Build & Push
+
+on:
+  workflow_call:
+    inputs:
+      image_name:
+        required: true
+        type: string
+      build_number:
+        required: true
+        type: string
+    secrets:
+      JF_URL:
+        required: true
+      JF_USER:
+        required: true
+      JF_PASSWORD:
+        required: true
+
+jobs:
+  docker-build-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Login to JFrog Docker Repo
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ secrets.JF_URL }}
+          username: ${{ secrets.JF_USER }}
+          password: ${{ secrets.JF_PASSWORD }}
+
+      - name: Build Docker Image 🐳
+        run: |
+          docker build . -t ${{ secrets.JF_URL }}/alpha-docker-virtual/${{ inputs.image_name }}:${{ inputs.build_number }}
+
+      - name: Push Docker Image to JFrog 🐳
+        run: |
+          docker push ${{ secrets.JF_URL }}/alpha-docker-virtual/${{ inputs.image_name }}:${{ inputs.build_number }}
