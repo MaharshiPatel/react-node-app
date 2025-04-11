@@ -42,7 +42,7 @@
       "markedjs": "^0.0.1-security",
       "module-alias": "^2.2.2",
       "mongodb": "^3.3.3",
-      "mongoose": "^5.7.7",
+      "mongoose": "^8.9.5",
       "nodemailer": "^6.3.1",
       "nodemailer-mailgun-transport": "^1.4.0",
       "url-slug": "^2.2.0",
