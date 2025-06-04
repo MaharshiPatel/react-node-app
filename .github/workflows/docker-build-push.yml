@@ -55,7 +55,7 @@ jobs:
          # Collect and store environment variables in the build-info
          jf rt bce ${{env.BUILD_NAME}} ${{github.run_number}}
          # Collect and store VCS details in the build-info
-         jf rt bag ${{env.BUILD_NAME}} ${{github.run_number}}
+         # jf rt bag ${{env.BUILD_NAME}} ${{github.run_number}}
 
          jf rt build-append reactApp ${{github.run_number}} reactAppImage ${{github.run_number}}
          jf rt bs ${{env.BUILD_NAME}} ${{github.run_number}}
