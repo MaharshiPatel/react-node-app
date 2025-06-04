@@ -51,17 +51,26 @@ jobs:
          jf npm install --build-name ${{env.BUILD_NAME}} --build-number ${{github.run_number}}
          jf npm publish --build-name ${{env.BUILD_NAME}} --build-number ${{github.run_number}}
 
+     - name: Collect the build-info and aggregate
+       run: |
+         # Collect and store environment variables in the build-info
+         jf rt bce ${{env.BUILD_NAME}} ${{github.run_number}}
+         # Collect and store VCS details in the build-info
+         jf rt bag ${{env.BUILD_NAME}} ${{github.run_number}}
+         jf rt bp ${{env.BUILD_NAME}} ${{github.run_number}}
+         jf rt bs ${{env.BUILD_NAME}} ${{github.run_number}}
+
  # Call the reusable workflow
- docker-build-push:
-    uses: ./.github/workflows/docker-build-push.yml
-    needs: npm-build-and-publish
-    with:
-      image_name: "reactappimage"
-      build_number: ${{ github.run_number }}
-    secrets:
-      JF_URL: ${{ secrets.JF_URL }}
-      JF_USER: ${{ secrets.JF_USER }}
-      JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
+ # docker-build-push:
+ #   uses: ./.github/workflows/docker-build-push.yml
+ #   needs: npm-build-and-publish
+ #   with:
+ #     image_name: "reactappimage"
+ #     build_number: ${{ github.run_number }}
+ #   secrets:
+ #     JF_URL: ${{ secrets.JF_URL }}
+ #     JF_USER: ${{ secrets.JF_USER }}
+ #     JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
       
 
      # - name: Create Release Bundle for RLM
