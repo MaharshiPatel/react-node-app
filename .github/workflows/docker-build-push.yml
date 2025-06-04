@@ -1,4 +1,4 @@
-name: Reusable Docker Build & Push
+name: ReusableDockerBuild&Push
 
 on:
   workflow_call:
@@ -47,4 +47,13 @@ jobs:
       - name: Push Docker Image to JFrog 🐳
         run: |
           jf docker push soleng.jfrog.io/alpha-docker-virtual/${{ inputs.image_name }}:${{ inputs.build_number }}
-        
+
+      - name: Collect the build-info and aggregate
+        run: |
+         # Collect and store environment variables in the build-info
+         jf rt bce ${{env.BUILD_NAME}} ${{github.run_number}}
+         # Collect and store VCS details in the build-info
+         jf rt bag ${{env.BUILD_NAME}} ${{github.run_number}}
+
+         jf rt build-append reactApp ${{github.run_number}} ReusableDockerBuild&Push ${{github.run_number}}
+         jf rt bs ${{env.BUILD_NAME}} ${{github.run_number}}
