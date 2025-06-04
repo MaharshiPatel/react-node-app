@@ -52,14 +52,6 @@ jobs:
          jf npm publish --build-name ${{env.BUILD_NAME}} --build-number ${{github.run_number}}
         #  npm test -- --json --outputFile=jest-report-${{github.run_number}}.json
 
-     - name: Collect the build-info
-       run: |
-         # Collect and store environment variables in the build-info
-         jf rt bce ${{env.BUILD_NAME}} ${{github.run_number}}
-         # Collect and store VCS details in the build-info
-         jf rt bag ${{env.BUILD_NAME}} ${{github.run_number}}
-         jf rt bs ${{env.BUILD_NAME}} ${{github.run_number}}
-
  # Call the reusable workflow
  docker-build-push:
     uses: ./.github/workflows/docker-build-push.yml
