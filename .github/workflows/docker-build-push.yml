@@ -20,6 +20,8 @@ on:
 jobs:
   docker-build-push:
     runs-on: ubuntu-latest
+    env:
+     BUILD_NAME: 'reactAppImage'
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -55,5 +57,5 @@ jobs:
          # Collect and store VCS details in the build-info
          jf rt bag ${{env.BUILD_NAME}} ${{github.run_number}}
 
-         jf rt build-append reactApp ${{github.run_number}} ReusableDockerBuild&Push ${{github.run_number}}
+         jf rt build-append reactApp ${{github.run_number}} reactAppImage ${{github.run_number}}
          jf rt bs ${{env.BUILD_NAME}} ${{github.run_number}}
