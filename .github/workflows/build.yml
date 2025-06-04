@@ -50,7 +50,6 @@ jobs:
          # Build the project using JFrog CLI
          jf npm install --build-name ${{env.BUILD_NAME}} --build-number ${{github.run_number}}
          jf npm publish --build-name ${{env.BUILD_NAME}} --build-number ${{github.run_number}}
-        #  npm test -- --json --outputFile=jest-report-${{github.run_number}}.json
 
  # Call the reusable workflow
  docker-build-push:
@@ -64,31 +63,6 @@ jobs:
       JF_USER: ${{ secrets.JF_USER }}
       JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
       
- 
- publish-build-build-info:
-    runs-on: ubuntu-latest
-    needs: docker-build-push
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: JFrog CLI setup 🐸
-        uses: jfrog/setup-jfrog-cli@v4
-        env:
-         JF_URL: ${{ secrets.JF_URL }}
-         JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
-         JF_USER: ${{secrets.JF_USER}}
-         JF_ACCESS_TOKEN: ${{secrets.JF_ACCESS_TOKEN}}
-         DOCKER_JF_RT_REPO: ${{secrets.DOCKER_JF_RT_REPO}}
-         NPM_JF_RT_REPO: ${{secrets.NPM_JF_RT_REPO}}
-      - name: Do something after everything is done
-        run: |
-         # Publish the build-info to Artifactory
-         jf rt bp ${{env.BUILD_NAME}} ${{github.run_number}}
-         # Scan the published build-info with Xray
-         jf rt bs ${{env.BUILD_NAME}} ${{github.run_number}}
-        if: always()
-     
-     
 
      # - name: Create Release Bundle for RLM
      #   run: |
