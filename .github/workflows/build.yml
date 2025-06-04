@@ -37,7 +37,7 @@ jobs:
      - name: Config NPM global
        run: |
          # Configure the project
-         jf npmc --repo-resolve alpha-npm-virtual --repo-deploy alpha-npm-virtual
+         jf npmc --repo-resolve auth-npm-dev-virtual --repo-deploy auth-npm-dev-virtual
      
      - name: "Curation: audit" # https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-security/cli-for-jfrog-curation
        timeout-minutes: 15    # ref https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idstepstimeout-minutes
