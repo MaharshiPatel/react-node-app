@@ -57,5 +57,6 @@ jobs:
          # Collect and store VCS details in the build-info
          # jf rt bag ${{env.BUILD_NAME}} ${{github.run_number}}
 
+         jf rt bp reactAppImage ${{github.run_number}}
          jf rt build-append reactApp ${{github.run_number}} reactAppImage ${{github.run_number}}
          jf rt bs ${{env.BUILD_NAME}} ${{github.run_number}}
