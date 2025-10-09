@@ -13,6 +13,15 @@ pipeline {
         
         stage('Check Connection') {
             steps {
+                sh """
+                curl -fL https://install-cli.jfrog.io | sh
+                """
+            }
+        }
+
+        
+        stage('Check Connection') {
+            steps {
                 jf 'rt ping'
                 sh """
                 # Example of uploading files to Artifactory
