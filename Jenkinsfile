@@ -26,7 +26,7 @@ pipeline {
         stage('Build and Publish Artifact') {
             steps {
                 // Configure npm project's repositories
-                jf 'npm-config --repo-resolve alpha-npm-virtual --repo-deploy alpha-npm-virtual'
+                jf 'npm-config --repo-resolve acic-npm --repo-deploy acic-npm'
 
                 // Install dependencies
                 jf 'npm install'
