@@ -10,14 +10,6 @@ pipeline {
                 git branch: 'main', url: "https://github.com/MaharshiPatel/react-node-app.git"
             }
         }
-        
-        stage('Check Connection') {
-            steps {
-                sh """
-                curl -fL https://install-cli.jfrog.io | sh
-                """
-            }
-        }
 
         
         stage('Check Connection') {
