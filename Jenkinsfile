@@ -1,5 +1,9 @@
 pipeline {
-    agent linux
+    agent {
+        node {
+            label 'linux'
+        }
+    }
     tools {
         jfrog 'jfrog-cli'
         nodejs 'npm'
