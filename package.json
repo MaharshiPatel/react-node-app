@@ -14,16 +14,6 @@
       "push-minor": "npm version minor && git push",
       "push-major": "npm version major && git push"
    },
-   "devDependencies": {
-      "angular": "1.8.3",
-      "bcryptjs": "^2.4.3",
-      "body-parser": "^1.19.0",
-      "chalk": "^2.4.2",
-      "compression": "^1.7.4",
-      "date-fns": "^2.6.0",
-      "debug": "^4.1.1",
-      "dotenv": "^8.2.0"
-   },
    "dependencies": {
       "bcryptjs": "^2.4.3",
       "body-parser": "^1.19.0",
