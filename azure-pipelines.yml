@@ -19,10 +19,29 @@ steps:
   inputs:
     jfrogPlatformConnection: 'JFrog Platform V2'
     command: | 
+      jf rt ping
       jf npmc --repo-resolve alpha-npm-virtual --repo-deploy alpha-npm-virtual
-      jf npm install --build-name '$(Build.DefinitionName)' --build-number '$(Build.BuildNumber)'
-      jf npm publish --build-name '$(Build.DefinitionName)' --build-number '$(Build.BuildNumber)'
-      jf rt bce '$(Build.DefinitionName)' '$(Build.BuildNumber)'
-      jf rt bag '$(Build.DefinitionName)' '$(Build.BuildNumber)'
-      jf rt bp '$(Build.DefinitionName)' '$(Build.BuildNumber)'
+
+- task: JFrogNpm@1
+  inputs:
+    command: 'install'
+    artifactoryConnection: 'JFrog Artifactory V2'
+    sourceRepo: 'alpha-npm-virtual'
+    collectBuildInfo: true
+    threads: '1'
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
+    includeEnvVars: true
+
+- task: JFrogPublishBuildInfo@1
+  inputs:
+    artifactoryConnection: 'JFrog Artifactory V2'
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
+
+- task: JfrogCliV2@1
+  name: 'BuildScan'
+  inputs:
+    jfrogPlatformConnection: 'JFrog Platform V2'
+    command: | 
       jf bs '$(Build.DefinitionName)' '$(Build.BuildNumber)'
