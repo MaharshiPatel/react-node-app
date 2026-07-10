@@ -1,6 +1,6 @@
 {
    "name": "react-bank-api",
-   "version": "2.0.88",
+   "version": "2.0.89",
    "private": false,
    "description": "react app new",
    "publishConfig": {
@@ -15,8 +15,9 @@
       "push-major": "npm version major && git push"
    },
    "dependencies": {
+      "accepts": "^1.3.7",
       "bcryptjs": "^2.4.3",
-      "body-parser": "^1.19.0",
+      "body-parser": "^2.2.2",
       "chalk": "^2.4.2",
       "compression": "^1.7.4",
       "cors": "^2.8.5",
@@ -28,14 +29,24 @@
       "helmet": "^3.21.2",
       "jsonwebtoken": "^8.5.1",
       "lodash": "^4.17.15",
-      "markedjs": "^0.0.1-security",
       "module-alias": "^2.2.2",
       "mongodb": "^3.3.3",
       "mongoose": "^5.7.7",
       "nodemailer": "^6.3.1",
       "nodemailer-mailgun-transport": "^1.4.0",
+      "react": "19.2.0",
       "url-slug": "^2.2.0",
-      "validator": "^13.7.0"
+      "validator": "^13.7.0",
+      "@apollo/server": "5.4.0",
+      "@launchdarkly/node-server-sdk": "9.7.2",
+      "graphql": "16.11.0",
+      "graphql-tag": "2.12.6",
+      "lighthouse-logger": "2.0.1",
+      "@types/react-dom": "19.1.2",
+      "agent-base": "7.1.3",
+      "pdfkit": "0.14.0",
+      "plaid": "29.0.0",
+      "secure-json-parse": "2.7.0"
    },
    "_moduleAliases": {
       "@config": "config",
