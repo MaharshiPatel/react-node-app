@@ -27,8 +27,18 @@ jobs:
        uses: jfrog/setup-jfrog-cli@v4
        env:
         JF_URL: ${{ secrets.JF_URL }}
-       with:
-        oidc-provider-name: mpatel-oidc
+        JF_USER: ${{ secrets.JF_USER }}
+        JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
+
+     - name: Reconfigure server with basic auth only
+       run: |
+        jf c add setup-jfrog-cli-server \
+          --url="${{ secrets.JF_URL }}" \
+          --user="${{ secrets.JF_USER }}" \
+          --password="${{ secrets.JF_PASSWORD }}" \
+          --basic-auth-only=true \
+          --interactive=false \
+          --overwrite=true
 
       
      - name: Config NPM global
